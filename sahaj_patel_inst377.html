@@ -1,0 +1,99 @@
+
+
+<html>
+
+<head>
+    <title>INST 377 Lab 4</title>
+
+    <style>
+        body {background-color: lightsalmon;
+        
+        font-family: sans-serif;}
+
+        .box {
+            background-color: rgb(142, 194, 173);
+            border: 5px solid rgb(255, 255, 255);
+            padding: 25px;
+            margin: 10px;
+            width: 50%;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1 id="heading">INST 377 Lab 4</h1>
+
+    <div class="box">
+
+        <form name="form" onsubmit="return alertme()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <input type="submit" value="Alert Me">
+        </form>
+
+    </div>
+
+    <div class="box">
+        <button onclick="color()">Change Color</button>
+    </div>
+
+    <div class="box">
+        <form name="val" onsubmit="return textest()">
+            <label for="text">Test Text:</label>
+            <input type="text" id="text" required>
+            <input type="submit" value="Validate Text">
+        </form>
+    </div>
+
+    <div class="box">
+        <button onclick="addText()">Add Text</button>
+    </div>
+
+
+
+    <script>
+        function alertme() {
+            alert("Hi " + document.form.name.value + "!");
+                return false;
+        }
+
+
+        function color() {
+
+            if (document.body.style.backgroundColor == 'lightblue') {
+                document.body.style.backgroundColor = 'lightsalmon';
+            } else {
+                document.body.style.backgroundColor = 'lightblue';
+            }
+
+
+        }
+
+        
+        function textest() {
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+            if (validation.test(document.val.text.value)) {
+                alert('There is a Special Character...Try Again')
+
+                return false;
+            }
+
+        }
+
+        function addText() {
+                document.getElementById('heading').innerHTML += '-- Adding Text'
+            }
+
+
+    </script>
+
+
+</body>
+
+
+
+</html>
